@@ -1,0 +1,337 @@
+{ 
+    "food_apps": [
+        {
+            "Fried Calamari": "-3088730200806839963"
+        },
+        {
+            "Our Famous Wings": "-1350800096379223241"
+        },
+        {
+            "4 Piece Garlic Rolls": "-8109616989190485452"
+        },
+        {
+            "5 Piece Mozzarella Sticks": "-3728727160150417226"
+        },
+        {
+            "4 Piece Garlic Rolls With Sauce": "-1575357319596201105"
+        },
+        {
+            "Eggplant": "-141455748912371356"
+        },
+        {
+            "French Fries": "-5396459955060315412"
+        },
+        {
+            "Broccoli Rabe": "3194878292893763893"
+        },
+        {
+            "Onion Rings": "8601302989180579560"
+        },
+        {
+            "Chicken Fingers With Fries": "-4477197721082407141"
+        },
+        {
+            "Clams": "1350099334219961828"
+        },
+        {
+            "Mussels": "-3470276416589467842"
+        },
+        {
+            "Shrimp Basket": "-6884592797623295987"
+        },
+        {
+            "Meatballs": "5243069348564888695"
+        },
+        {
+            "Sausages": "1861088016475321205"
+        },
+        {
+            "Eggplant Layers": "7657135224437837293"
+        }
+    ],
+    "pizza_14": [
+        {
+            "Margherita Pizza": "-8650197138903569417"
+        },
+        {
+            "Buffalo Chicken Pizza": "791297544187189971"
+        },
+        {
+            "Cheese Pizza": "-1758584762093373541"
+        },
+        {
+            "Tomato Pizza": "742175547678443097"
+        },
+        {
+            "White Ricotta Pizza": "-3362673682271605727"
+        },
+        {
+            "White Pizza": "4954164582661867148"
+        },
+        {
+            "Hawaiian Pizza": "3860733500228299140"
+        },
+        {
+            "Homestyle Pizza": "8113114131064597878"
+        },
+        {
+            "Bruschetta Pizza": "-1081841092566303147"
+        },
+        {
+            "Steak Pizza": "6793596012510191944"
+        },
+        {
+            "Chicken Pizza": "-3706461102129968636"
+        },
+        {
+            "Chicken, Broccoli & Garlic Pizza": "7484248356017758286"
+        },
+        {
+            "Chicken, Bacon & Ranch Pizza": "-4499417367945575935"
+        },
+        {
+            "Chicken Caesar Pizza": "-7658262235725929517"
+        },
+        {
+            "BBQ Steak Pizza": "875953104060402945"
+        },
+        {
+            "BBQ Chicken Pizza": "-603823189472468527"
+        },
+        {
+            "Honey Mustard Chicken Pizza": "5065376012742816477"
+        },
+        {
+            "4 Cheese Pizza": "-3826662019345806100"
+        }
+    
+    ],
+    "pizza_16": [
+        {
+            "Margherita Pizza": "-8650197138903569417"
+        },
+        {
+            "Buffalo Chicken Pizza": "791297544187189971"
+        },
+        {
+            "Cheese Pizza": "-1758584762093373541"
+        },
+        {
+            "Tomato Pizza": "742175547678443097"
+        },
+        {
+            "White Ricotta Pizza": "-3362673682271605727"
+        },
+        {
+            "White Pizza": "4954164582661867148"
+        },
+        {
+            "Hawaiian Pizza": "3860733500228299140"
+        },
+        {
+            "Homestyle Pizza": "8113114131064597878"
+        },
+        {
+            "Bruschetta Pizza": "-1081841092566303147"
+        },
+        {
+            "Steak Pizza": "6793596012510191944"
+        },
+        {
+            "Chicken Pizza": "-3706461102129968636"
+        },
+        {
+            "Chicken, Broccoli & Garlic Pizza": "7484248356017758286"
+        },
+        {
+            "Chicken, Bacon & Ranch Pizza": "-4499417367945575935"
+        },
+        {
+            "Chicken Caesar Pizza": "-7658262235725929517"
+        },
+        {
+            "BBQ Steak Pizza": "875953104060402945"
+        },
+        {
+            "BBQ Chicken Pizza": "-603823189472468527"
+        },
+        {
+            "Honey Mustard Chicken Pizza": "5065376012742816477"
+        },
+        {
+            "4 Cheese Pizza": "-3826662019345806100"
+        }
+    
+    ],
+    "pizza_18": [
+        {
+            "Margherita Pizza": "-8650197138903569417"
+        },
+        {
+            "Buffalo Chicken Pizza": "791297544187189971"
+        },
+        {
+            "Cheese Pizza": "-1758584762093373541"
+        },
+        {
+            "Tomato Pizza": "742175547678443097"
+        },
+        {
+            "White Ricotta Pizza": "-3362673682271605727"
+        },
+        {
+            "White Pizza": "4954164582661867148"
+        },
+        {
+            "Hawaiian Pizza": "3860733500228299140"
+        },
+        {
+            "Homestyle Pizza": "8113114131064597878"
+        },
+        {
+            "Bruschetta Pizza": "-1081841092566303147"
+        },
+        {
+            "Steak Pizza": "6793596012510191944"
+        },
+        {
+            "Chicken Pizza": "-3706461102129968636"
+        },
+        {
+            "Chicken, Broccoli & Garlic Pizza": "7484248356017758286"
+        },
+        {
+            "Chicken, Bacon & Ranch Pizza": "-4499417367945575935"
+        },
+        {
+            "Chicken Caesar Pizza": "-7658262235725929517"
+        },
+        {
+            "BBQ Steak Pizza": "875953104060402945"
+        },
+        {
+            "BBQ Chicken Pizza": "-603823189472468527"
+        },
+        {
+            "Honey Mustard Chicken Pizza": "5065376012742816477"
+        },
+        {
+            "4 Cheese Pizza": "-3826662019345806100"
+        }
+    
+    ],
+    "pizza_personal": [
+        {
+            "Margherita Pizza": "-8650197138903569417"
+        },
+        {
+            "Buffalo Chicken Pizza": "791297544187189971"
+        },
+        {
+            "Cheese Pizza": "-1758584762093373541"
+        },
+        {
+            "Tomato Pizza": "742175547678443097"
+        },
+        {
+            "White Ricotta Pizza": "-3362673682271605727"
+        },
+        {
+            "White Pizza": "4954164582661867148"
+        },
+        {
+            "Hawaiian Pizza": "3860733500228299140"
+        },
+        {
+            "Homestyle Pizza": "8113114131064597878"
+        },
+        {
+            "Bruschetta Pizza": "-1081841092566303147"
+        },
+        {
+            "Steak Pizza": "6793596012510191944"
+        },
+        {
+            "Chicken Pizza": "-3706461102129968636"
+        },
+        {
+            "Chicken, Broccoli & Garlic Pizza": "7484248356017758286"
+        },
+        {
+            "Chicken, Bacon & Ranch Pizza": "-4499417367945575935"
+        },
+        {
+            "Chicken Caesar Pizza": "-7658262235725929517"
+        },
+        {
+            "BBQ Steak Pizza": "875953104060402945"
+        },
+        {
+            "BBQ Chicken Pizza": "-603823189472468527"
+        },
+        {
+            "Honey Mustard Chicken Pizza": "5065376012742816477"
+        },
+        {
+            "4 Cheese Pizza": "-3826662019345806100"
+        }
+    
+    ],
+    "pizza_slice": [
+        {
+            "Margherita Pizza": "-8650197138903569417"
+        },
+        {
+            "Buffalo Chicken Pizza": "791297544187189971"
+        },
+        {
+            "Cheese Pizza": "-1758584762093373541"
+        },
+        {
+            "Tomato Pizza": "742175547678443097"
+        },
+        {
+            "White Ricotta Pizza": "-3362673682271605727"
+        },
+        {
+            "White Pizza": "4954164582661867148"
+        },
+        {
+            "Hawaiian Pizza": "3860733500228299140"
+        },
+        {
+            "Homestyle Pizza": "8113114131064597878"
+        },
+        {
+            "Bruschetta Pizza": "-1081841092566303147"
+        },
+        {
+            "Steak Pizza": "6793596012510191944"
+        },
+        {
+            "Chicken Pizza": "-3706461102129968636"
+        },
+        {
+            "Chicken, Broccoli & Garlic Pizza": "7484248356017758286"
+        },
+        {
+            "Chicken, Bacon & Ranch Pizza": "-4499417367945575935"
+        },
+        {
+            "Chicken Caesar Pizza": "-7658262235725929517"
+        },
+        {
+            "BBQ Steak Pizza": "875953104060402945"
+        },
+        {
+            "BBQ Chicken Pizza": "-603823189472468527"
+        },
+        {
+            "Honey Mustard Chicken Pizza": "5065376012742816477"
+        },
+        {
+            "4 Cheese Pizza": "-3826662019345806100"
+        }
+    
+    ]
+}
