@@ -333,5 +333,41 @@
             "4 Cheese Pizza": "-3826662019345806100"
         }
     
-    ]
+    ],
+    "salad_options":[
+        {
+            "House Salad": "2769686924065748916"
+        },
+        {
+            "Caesar Salad": "-4548839126307012694"
+        },
+        {
+            "Chicken Caesar Salad": "7848830741018858002"
+        },
+        {
+            "BBQ Chicken Salad": "8852289519266556208"
+        },
+        {
+            "Antipasto Salad": "260625034717178704"
+        },
+        {
+            "Chicken Chef Salad": "7826639068422349217"
+        },
+        {
+            "Philly Steak Salad": "-601204101395064733"
+        },
+        {
+            "Grilled Shrimp Salad0": "7130088055798708891"
+        },
+        {
+            "Buffalo Chicken Salad": "823966512532613918"
+        },
+        {
+            "Honey Mustard Chicken Salad": "-4820449850429251916"
+        },
+        {
+            "Chicken Shrimp Salad": "6607019745952742268"
+        }
+
+    ] 
 }
