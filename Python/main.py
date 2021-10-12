@@ -265,15 +265,15 @@ def choicePizza():
                     choicePizza()
 
                 elif review == 'salads':
-                    print("choiceSalad()")
+                    choiceSalad()
                 elif review == "appetizers" or "apps":
-                    print("choiceApps()")
+                    choiceApps()
                 elif review == "pasta":
-                    print("choicePasta()")
+                    choicePasta()
                 elif review == "entrees":
                     print("choiceEntrees")
                 elif review == "subs" or "hot subs" or "cold subs" or "hot and cold subs":
-                    print("choiceSubs()")
+                    choiceSubs()
                 else:
                     print("finish later")
                     driver.close()
@@ -451,75 +451,6 @@ def choicePizza():
     else:
         print("ERROR")
 
-def choiceEntrees():
-    print("does nothing yet")
-
-def choiceSalad():
-    saladList = [
-        "House Salad",
-        "Caesar Salad",
-        "Chicken Caesar",
-        "BBQ Chicken Salad",
-        "Antipasto Salad",
-        "Chicken Chef Salad",
-        "Philly Steak Salad",
-        "Grilled Shrimp Salad",
-        "Buffalo Chicken Salad",
-        "Honey Mustard Chicken Salad",
-        "Chicken Shrimp Salad"
-    ]
-    n = 1
-    for i in saladList:
-        print("#", n, ":", saladList[n-1])
-
-    optionFood = input('What salad do you want? (Enter item #.\n')
-    time.sleep(2)
-    optionFood = optionFood - 1
-    appChoice = saladList[optionFood]
-    print("Do you want to add ", appChoice, "to your order?")
-    y = input("(Enter 'y or n' to continue: )").lower()
-
-    if y == "y" or "yes":
-        f = open('food.json',)
-        data = json.load(f)
-
-        item = str(data['salad_option'][optionFood])
-        itemID = item.split(':')[1].lstrip().split(' ')[
-            0].lstrip('"').rstrip('"}')
-        itemID.lstrip("'").rstrip("'")
-
-        time.sleep(2)
-
-        addFood = driver.find_element_by_id(itemID[1:-1])
-        addFood.click()
-        time.sleep(2)
-        addToCart = driver.find_element_by_class_name("ulVjFf")
-        driver.implicitly_wait(10)
-        ActionChains(driver).move_to_element(
-            addToCart).click(addToCart).perform()
-        # addToCart.click()
-        print("We added  ", appChoice, "to your cart.\n")
-        n = input("Is there anything else you want? ").lower()
-        time.sleep(2)
-        if n == "y" or "yes":
-            review = input("Ok what do you want to order?").lower()
-            if review == 'pizza':
-                choicePizza()
-            elif review == 'salads':
-                choiceSalad()
-            elif review == "appetizers" or "apps":
-                choiceApps()
-            elif review == "pasta":
-                choicePasta()
-            elif review == "entrees":
-                choiceEntrees()
-            elif review == "subs" or "hot subs" or "cold subs" or "hot and cold subs":
-                choiceSubs()
-            else:
-                print("Starting Checkout...")
-            driver.close()
-
-
 def choicePasta():
     pastaList = [
         "Pasta With Tomato Sauce",
@@ -540,7 +471,6 @@ def choicePasta():
         "Pasta With Garlic & Oil",
         "Pasta With Clams",
         "Shrimp Scampi",
-        "Lasagna",
         "Baked Ziti",
         "Baked Ziti With Spinach",
         "Baked Penne",
@@ -552,19 +482,20 @@ def choicePasta():
     n = 1
     for i in pastaList:
         print("#", n, ":", pastaList[n-1])
+        n = n + 1
 
-    optionFood = input('What salad do you want? (Enter item #.\n')
+    optionFood = int(input('What pasta do you want? (Enter item #.)\n'))
     time.sleep(2)
     optionFood = optionFood - 1
     appChoice = pastaList[optionFood]
-    print("Do you want to add ", appChoice, "to your order?")
+    print("Do you want to add ", appChoice, "to your order?\n")
     y = input("(Enter 'y or n' to continue: )").lower()
 
     if y == "y" or "yes":
         f = open('food.json',)
         data = json.load(f)
 
-        item = str(data['pasta_option'][optionFood])
+        item = str(data['pasta_options'][optionFood])
         itemID = item.split(':')[1].lstrip().split(' ')[
             0].lstrip('"').rstrip('"}')
         itemID.lstrip("'").rstrip("'")
@@ -600,6 +531,77 @@ def choicePasta():
                 print("Starting Checkout...")
             driver.close()
 
+def choiceSalad():
+    saladList = [
+        "House Salad",
+        "Caesar Salad",
+        "Chicken Caesar",
+        "BBQ Grilled Chicken Salad",
+        "Antipasto Salad",
+        "Chicken Chef Salad",
+        "Philly Steak Salad",
+        "Grilled Shrimp Salad",
+        "Buffalo Grilled Chicken Salad",
+        "Honey Mustard Fried Chicken Salad",
+        "Chicken Shrimp Salad",
+        "Buffalo Fried Chicken Salad",
+        "BBQ Fried Chicken Salad",
+        "Honey Mustard Grilled Chicken Salad"
+    ]
+    n = 1
+    for i in saladList:
+        print("#", n, ":", saladList[n-1])
+        n = n + 1
+
+    optionFood = int(input('What salad do you want? (Enter item #)\n'))
+    time.sleep(2)
+    optionFood = optionFood - 1
+    appChoice = saladList[optionFood]
+    print("Do you want to add ", appChoice, "to your order?")
+    y = input("(Enter 'y or n' to continue: )").lower()
+
+    if y == "y" or "yes":
+        f = open('food.json',)
+        data = json.load(f)
+
+        item = str(data['salad_options'][optionFood])
+        itemID = item.split(':')[1].lstrip().split(' ')[
+            0].lstrip('"').rstrip('"}')
+        itemID.lstrip("'").rstrip("'")
+
+        time.sleep(2)
+
+        addFood = driver.find_element_by_id(itemID[1:-1])
+        addFood.click()
+        time.sleep(2)
+        addToCart = driver.find_element_by_class_name("ulVjFf")
+        driver.implicitly_wait(10)
+        ActionChains(driver).move_to_element(
+            addToCart).click(addToCart).perform()
+        # addToCart.click()
+        print("We added  ", appChoice, "to your cart.\n")
+        n = input("Is there anything else you want? ").lower()
+        time.sleep(2)
+        if n == "y" or "yes":
+            review = input("Ok what do you want to order?").lower()
+            if review == 'pizza':
+                choicePizza()
+            elif review == 'salads':
+                choiceSalad()
+            elif review == "appetizers" or "apps":
+                choiceApps()
+            elif review == "pasta":
+                choicePasta()
+            elif review == "entrees":
+                choiceEntrees()
+            elif review == "subs" or "hot subs" or "cold subs" or "hot and cold subs":
+                choiceSubs()
+            else:
+                print("Starting Checkout...")
+            driver.close()
+
+def choiceEntrees():
+    print("does nothing yet")
 
 def choiceSubs():
     print("does nothing yet")
@@ -618,17 +620,18 @@ if (choiceOrder == "pick up" or "pickup" or "pick-up"):
     driver.get(siteURL)
     startFood = input(
         'Do you want Appetizers, Salads, Pasta, Pizza, Entrees, or Hot & Cold Subs?\n').lower()
+    #print(startFood)
     if startFood == ("apps" or "appetizers"):
         choiceApps()
-    elif startFood == 'pizza':
+    elif startFood == ('pizza' or 'pie' or 'pizza pie'):
         choicePizza()
-    elif startFood == 'salad' or 'salads':
+    elif startFood == ('salad' or 'salads'):
         choiceSalad()
-    elif startFood == 'pasta':
+    elif startFood == ('pasta' or 'pastas' or 'specialty pasta' or 'special pasta'):
         choicePasta()
-    elif startFood == 'entrees' or 'entree':
+    elif startFood == ('entrees' or 'entree'):
         choiceEntrees()
-    elif startFood == 'subs' or 'hot and cold subs' or 'hot & cold subs' or 'hot and cold' or 'hot & cold' or 'sub' or 'hot and cold sub' or 'hot & cold sub':
+    elif startFood == ('subs' or 'hot and cold subs' or 'hot & cold subs' or 'hot and cold' or 'hot & cold' or 'sub' or 'hot and cold sub' or 'hot & cold sub'):
         choiceSubs()
 
 
