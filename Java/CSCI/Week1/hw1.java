@@ -1,3 +1,4 @@
+package Week1;
 import java.util.Scanner;
 /*
 a program to calculate tip for solo or party

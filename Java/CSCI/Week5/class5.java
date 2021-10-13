@@ -1,3 +1,4 @@
+package Week5;
 import java.util.Scanner;
 
 public class class5 {

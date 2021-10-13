@@ -1,3 +1,4 @@
+package Week2;
 import java.io.IOException;
 import java.util.Random;
 
