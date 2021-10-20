@@ -20,7 +20,7 @@ selection = input("What menu category do you want to order from?").lower()
 
 if selection in data:
     print("Okay we are on it!")
-    
+ 
 else:
     print("We cant find what you want!")
 
