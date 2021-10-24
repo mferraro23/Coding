@@ -2,6 +2,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 
+#using this to learn neural networks
+
 dataset = pd.read_csv("cancer.csv")
 
 x = dataset.drop(columns=["diagnosis(1=m, 0=b)"]) # drop is used to remove a column
