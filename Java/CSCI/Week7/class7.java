@@ -1,4 +1,4 @@
-package Week7;
+package Java.CSCI.Week7;
 import java.util.Scanner;
 
 public class class7 {

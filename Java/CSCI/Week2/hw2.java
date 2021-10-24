@@ -1,4 +1,4 @@
-package Week2;
+package Java.CSCI.Week2;
 import java.io.IOException;
 import java.util.Random;
 

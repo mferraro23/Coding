@@ -1,4 +1,4 @@
-package Week6;
+package Java.CSCI.Week6;
 import java.util.Scanner;
 
 public class class6 {

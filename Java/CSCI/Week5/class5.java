@@ -1,4 +1,4 @@
-package Week5;
+package Java.CSCI.Week5;
 import java.util.Scanner;
 
 public class class5 {
