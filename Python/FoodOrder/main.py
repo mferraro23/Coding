@@ -50,7 +50,7 @@ def choiceApps():
     appChoice = appOptions[optionFood]
     print("Do you want to add ", appChoice, "to your order?")
     y = input("(Enter 'y or n' to continue: )").lower()
-
+    
     if y == "y" or "yes":
         f = open('food.json',)
         data = json.load(f)
