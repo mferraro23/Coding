@@ -17,7 +17,7 @@ def find_list(selection):
     indexValue = data.get(selection)
     for div in soup.find_all('div', {'class': 'SUXJqf'}):
         for names in div.find_all('div', {'role': 'tab'}):
-            name = names.find(data[indexValue]) #FIX HERE DOWN 
+            name = names.find(data[indexValue]) 
             print(name)
                 
 
