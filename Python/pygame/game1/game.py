@@ -8,11 +8,13 @@ WIDTH, HEIGHT = 900, 500
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))  # set display
 pygame.display.set_caption("SpaceDefenders")
 BORDER = pygame.Rect(WIDTH//2, 0, 10, HEIGHT-5)
+SPACE = pygame.transform.scale(pygame.image.load(
+    os.path.join('Assets', 'space.jpg')), (WIDTH, HEIGHT))
 
 # colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
-RED = (255, 0 ,0)
+RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 
 # fonts
@@ -24,11 +26,9 @@ FPS = 60
 VEL = 5
 BULLET_VEL = 7
 MAX_BULLETS = 6
-SPACE = pygame.transform.scale(pygame.image.load(
-    os.path.join('Assets', 'space.jpg')), (WIDTH, HEIGHT))
 
 # Sounds
-BUTTLET_HIT_SOUND = pygame.mixer.Sound(os.path.join('assets','hit.wav'))
+BUTTLET_HIT_SOUND = pygame.mixer.Sound(os.path.join('assets', 'hit.wav'))
 BULLET_FIRE_SOUND = pygame.mixer.Sound(os.path.join('assets', 'fire.wav'))
 
 # HITS
@@ -53,14 +53,13 @@ RED_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(
 
 
 def draw_window(yellow, yellow_bullets, yellow_health, red, red_bullets, red_health):
-    WIN.blit(SPACE, (0,0))
+    WIN.blit(SPACE, (0, 0))
     pygame.draw.rect(WIN, BLACK, BORDER)
-
 
     # red health
     red_health_text = HEALTH_FONT.render(
         "Health: " + str(red_health), 1, WHITE)
-    
+
     # yellow health
     yellow_health_text = HEALTH_FONT.render(
         "Health: " + str(yellow_health), 1, WHITE)
@@ -77,25 +76,33 @@ def draw_window(yellow, yellow_bullets, yellow_health, red, red_bullets, red_hea
 
     pygame.display.update()
 
+
 def handle_yellow_movement(keys_pressed, yellow):
     if keys_pressed[pygame.K_a] and yellow.x - VEL > 0:  # LEFT
         yellow.x -= VEL
-    if keys_pressed[pygame.K_d] and yellow.x + VEL + (yellow.width - 15) < BORDER.x: # RIGHT
+    # RIGHT
+    if keys_pressed[pygame.K_d] and yellow.x + VEL + (yellow.width - 15) < BORDER.x:
         yellow.x += VEL
-    if keys_pressed[pygame.K_w] and yellow.y - VEL > 0: # UP
+    if keys_pressed[pygame.K_w] and yellow.y - VEL > 0:  # UP
         yellow.y -= VEL
-    if keys_pressed[pygame.K_s] and yellow.y + VEL + (yellow.height + 15) < HEIGHT:  # DOWN
+    # DOWN
+    if keys_pressed[pygame.K_s] and yellow.y + VEL + (yellow.height + 15) < HEIGHT:
         yellow.y += VEL
-    
+
+
 def handle_red_movement(keys_pressed, red):
-    if keys_pressed[pygame.K_LEFT] and red.x - VEL - (red.width - 45) > BORDER.x:  # LEFT
+    # LEFT
+    if keys_pressed[pygame.K_LEFT] and red.x - VEL - (red.width - 45) > BORDER.x:
         red.x -= VEL
-    if keys_pressed[pygame.K_RIGHT] and red.x + VEL + (red.width - 15) < WIDTH:  # RIGHT
+    # RIGHT
+    if keys_pressed[pygame.K_RIGHT] and red.x + VEL + (red.width - 15) < WIDTH:
         red.x += VEL
     if keys_pressed[pygame.K_UP] and red.y - VEL > 0:  # UP
         red.y -= VEL
-    if keys_pressed[pygame.K_DOWN] and red.y + VEL + (red.height + 15) < HEIGHT:  # DOWN
+    # DOWN
+    if keys_pressed[pygame.K_DOWN] and red.y + VEL + (red.height + 15) < HEIGHT:
         red.y += VEL
+
 
 def handle_bullets(yellow_bullets, red_bullets, yellow, red):
     for bullet in yellow_bullets:
@@ -114,11 +121,14 @@ def handle_bullets(yellow_bullets, red_bullets, yellow, red):
         elif bullet.x < 0:
             red_bullets.remove(bullet)
 
+
 def draw_winner(text):
-    draw_text = WINNER_FONT.render(text,1,WHITE)
-    WIN.blit(draw_text, (WIDTH//2 - draw_text.get_width()//2, HEIGHT//2 - draw_text.get_height()//2))
+    draw_text = WINNER_FONT.render(text, 1, WHITE)
+    WIN.blit(draw_text, (WIDTH//2 - draw_text.get_width() //
+             2, HEIGHT//2 - draw_text.get_height()//2))
     pygame.display.update()
     pygame.time.delay(5000)
+
 
 def main():
     red = pygame.Rect(R_SPACESHIP_X, R_SPACESHIP_Y,
@@ -130,7 +140,7 @@ def main():
     red_bullets = []
 
     red_health, yellow_health = 100, 100
-    
+
     clock = pygame.time.Clock()
     run = True
     while run:
@@ -172,14 +182,15 @@ def main():
                 draw_winner(winner_text)
                 run = False
 
-        #move spaceships
+        # move spaceships
         keys_pressed = pygame.key.get_pressed()
         handle_yellow_movement(keys_pressed, yellow)
         handle_red_movement(keys_pressed, red)
 
         handle_bullets(yellow_bullets, red_bullets, yellow, red)
 
-        draw_window(yellow, yellow_bullets, yellow_health, red, red_bullets, red_health)
+        draw_window(yellow, yellow_bullets, yellow_health,
+                    red, red_bullets, red_health)
 
     main()
 
