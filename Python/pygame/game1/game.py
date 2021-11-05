@@ -16,6 +16,7 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
+GREEN = (0,255,0)
 
 # fonts
 HEALTH_FONT = pygame.font.SysFont('comicsans', 20)
@@ -26,6 +27,8 @@ FPS = 60
 VEL = 5
 BULLET_VEL = 7
 MAX_BULLETS = 6
+HEALTH_WIDTH = 200
+HEALTH_HEIGHT = 20
 
 # Sounds
 BUTTLET_HIT_SOUND = pygame.mixer.Sound(os.path.join('assets', 'hit.wav'))
@@ -51,6 +54,13 @@ RED_SPACESHIP_IMAGE = pygame.image.load(
 RED_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(
     RED_SPACESHIP_IMAGE, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270)
 
+def draw_health(red_health, yellow_health, red_health_text, yellow_health_text):
+    YELLOW_HEALTH_BAR = pygame.Rect(yellow_health_text.get_width() + 10, 10, yellow_health, 25)
+    RED_HEALTH_BAR = pygame.Rect(WIDTH-110, 10, red_health, 25)
+    pygame.draw.rect(WIN, GREEN, YELLOW_HEALTH_BAR)
+    pygame.draw.rect(WIN, GREEN, RED_HEALTH_BAR)
+    #pygame.display.update()
+
 
 def draw_window(yellow, yellow_bullets, yellow_health, red, red_bullets, red_health):
     WIN.blit(SPACE, (0, 0))
@@ -58,12 +68,12 @@ def draw_window(yellow, yellow_bullets, yellow_health, red, red_bullets, red_hea
 
     # red health
     red_health_text = HEALTH_FONT.render(
-        "Health: " + str(red_health), 1, WHITE)
+        "Health: ", 1, WHITE)
 
     # yellow health
     yellow_health_text = HEALTH_FONT.render(
-        "Health: " + str(yellow_health), 1, WHITE)
-    WIN.blit(red_health_text, (WIDTH - red_health_text.get_width() - 10, 10))
+        "Health: ", 1, WHITE)
+    WIN.blit(red_health_text, (WIDTH - red_health_text.get_width() - 110, 10))
     WIN.blit(yellow_health_text, (10, 10))
 
     WIN.blit(YELLOW_SPACESHIP, (yellow.x, yellow.y))
@@ -73,6 +83,8 @@ def draw_window(yellow, yellow_bullets, yellow_health, red, red_bullets, red_hea
         pygame.draw.rect(WIN, RED, bullet)
     for bullet in yellow_bullets:
         pygame.draw.rect(WIN, YELLOW, bullet)
+
+    draw_health(red_health, yellow_health, red_health_text, yellow_health_text)
 
     pygame.display.update()
 
@@ -165,13 +177,16 @@ def main():
                         red.x, red.y + red.height//2 - 2, 10, 5)
                     red_bullets.append(bullet)
                     BULLET_FIRE_SOUND.play()
+            
 
             if event.type == RED_HIT:
                 red_health -= 5
+                #draw_health(red_health,yellow_health)
                 BUTTLET_HIT_SOUND.play()
 
             if event.type == YELLOW_HIT:
                 yellow_health -= 5
+                #draw_health(red_health, yellow_health)
                 BUTTLET_HIT_SOUND.play()
 
             winner_text = ''
