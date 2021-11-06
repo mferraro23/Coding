@@ -1,5 +1,8 @@
 import pygame
 import os
+ 
+from pygame import display
+
 pygame.font.init()
 pygame.mixer.init()
 
@@ -29,16 +32,34 @@ BULLET_VEL = 7
 MAX_BULLETS = 6
 HEALTH_WIDTH = 200
 HEALTH_HEIGHT = 20
+SPACESHIP_WIDTH, SPACESHIP_HEIGHT = 55, 40
 
 # Sounds
 BUTTLET_HIT_SOUND = pygame.mixer.Sound(os.path.join('assets', 'hit.wav'))
 BULLET_FIRE_SOUND = pygame.mixer.Sound(os.path.join('assets', 'fire.wav'))
 
+# Animations
+EXPLODE1 = pygame.image.load(os.path.join('assets', '1.png'))
+EXPLODE_SCALE_1 = pygame.transform.scale((EXPLODE1), (50,50))
+EXPLODE2 = pygame.image.load(os.path.join('assets', '2.png'))
+EXPLODE_SCALE_2 = pygame.transform.scale((EXPLODE2), (50, 50))
+EXPLODE3 = pygame.image.load(os.path.join('assets', '3.png'))
+EXPLODE_SCALE_3= pygame.transform.scale((EXPLODE3), (50,50))
+EXPLODE4 = pygame.image.load(os.path.join('assets', '4.png'))
+EXPLODE_SCALE_4= pygame.transform.scale((EXPLODE4), (50,50))
+EXPLODE5 = pygame.image.load(os.path.join('assets', '5.png'))
+EXPLODE_SCALE_5 = pygame.transform.scale((EXPLODE5), (50, 50))
+EXPLODE6 = pygame.image.load(os.path.join('assets', '6.png'))
+EXPLODE_SCALE_6 = pygame.transform.scale((EXPLODE6), (50, 50))
+EXPLODE7 = pygame.image.load(os.path.join('assets', '7.png'))
+EXPLODE_SCALE_7 = pygame.transform.scale((EXPLODE7), (50, 50))
+
+annimate_list = [EXPLODE_SCALE_1, EXPLODE_SCALE_2, EXPLODE_SCALE_3,EXPLODE_SCALE_4, EXPLODE_SCALE_5, EXPLODE_SCALE_6, EXPLODE_SCALE_7]
+
 # HITS
 YELLOW_HIT = pygame.USEREVENT + 1
 RED_HIT = pygame.USEREVENT + 2
 
-SPACESHIP_WIDTH, SPACESHIP_HEIGHT = 55, 40
 
 # yellow spaceship data
 Y_SPACESHIP_X, Y_SPACESHIP_Y = 150, 100
@@ -54,13 +75,12 @@ RED_SPACESHIP_IMAGE = pygame.image.load(
 RED_SPACESHIP = pygame.transform.rotate(pygame.transform.scale(
     RED_SPACESHIP_IMAGE, (SPACESHIP_WIDTH, SPACESHIP_HEIGHT)), 270)
 
+
 def draw_health(red_health, yellow_health, red_health_text, yellow_health_text):
     YELLOW_HEALTH_BAR = pygame.Rect(yellow_health_text.get_width() + 10, 10, yellow_health, 25)
     RED_HEALTH_BAR = pygame.Rect(WIDTH-110, 10, red_health, 25)
     pygame.draw.rect(WIN, GREEN, YELLOW_HEALTH_BAR)
     pygame.draw.rect(WIN, GREEN, RED_HEALTH_BAR)
-    #pygame.display.update()
-
 
 def draw_window(yellow, yellow_bullets, yellow_health, red, red_bullets, red_health):
     WIN.blit(SPACE, (0, 0))
@@ -69,11 +89,11 @@ def draw_window(yellow, yellow_bullets, yellow_health, red, red_bullets, red_hea
     # red health
     red_health_text = HEALTH_FONT.render(
         "Health: ", 1, WHITE)
+    WIN.blit(red_health_text, (WIDTH - red_health_text.get_width() - 110, 10))
 
     # yellow health
     yellow_health_text = HEALTH_FONT.render(
         "Health: ", 1, WHITE)
-    WIN.blit(red_health_text, (WIDTH - red_health_text.get_width() - 110, 10))
     WIN.blit(yellow_health_text, (10, 10))
 
     WIN.blit(YELLOW_SPACESHIP, (yellow.x, yellow.y))
@@ -120,6 +140,7 @@ def handle_red_movement(keys_pressed, red):
 
 
 def handle_bullets(yellow_bullets, red_bullets, yellow, red):
+    
     for bullet in yellow_bullets:
         bullet.x += BULLET_VEL
         if red.colliderect(bullet):
@@ -127,6 +148,15 @@ def handle_bullets(yellow_bullets, red_bullets, yellow, red):
             yellow_bullets.remove(bullet)
         elif bullet.x > WIDTH:
             yellow_bullets.remove(bullet)
+        for redbull in red_bullets:
+            if bullet.colliderect(redbull):
+                yellow_bullets.remove(bullet)
+                red_bullets.remove(redbull)
+
+                for sprite in annimate_list:
+                    WIN.blit(sprite, (bullet.x-30, bullet.y-20))
+                    display.update()
+                BUTTLET_HIT_SOUND.play()
 
     for bullet in red_bullets:
         bullet.x -= BULLET_VEL
@@ -181,12 +211,10 @@ def main():
 
             if event.type == RED_HIT:
                 red_health -= 5
-                #draw_health(red_health,yellow_health)
                 BUTTLET_HIT_SOUND.play()
 
             if event.type == YELLOW_HIT:
                 yellow_health -= 5
-                #draw_health(red_health, yellow_health)
                 BUTTLET_HIT_SOUND.play()
 
             winner_text = ''
