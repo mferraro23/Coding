@@ -182,7 +182,9 @@ def main():
                          SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
 
     yellow_bullets = []
+    yellow_bullets.clear()
     red_bullets = []
+    red_bullets.clear()
 
     red_health, yellow_health = 100, 100
 
@@ -220,9 +222,13 @@ def main():
             winner_text = ''
             if red_health <= 0:
                 winner_text = 'Yellow Wins!'
+                for sprite in annimate_list:
+                    WIN.blit(sprite, (red.x, red.y))
 
             if yellow_health <= 0:
                 winner_text = 'Red Wins!'
+                for sprite in annimate_list:
+                    WIN.blit(sprite, (yellow.x, yellow.y))
 
             if winner_text != '':
                 draw_winner(winner_text)
