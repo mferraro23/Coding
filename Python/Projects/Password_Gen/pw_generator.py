@@ -56,7 +56,7 @@ def find_chars(strChars, chars):
 alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
             "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-size = int(input("Length to make Password: "))
+size = int(input("Approximate length to make Password: "))
 chars = input("What chars cannot be used? ").lower().split()
 strChars = ''.join(chars)
 amnt_upper = int(input("How many upercase letters: "))
