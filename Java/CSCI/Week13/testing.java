@@ -25,11 +25,11 @@ public class testing {
         int[] quizScores = new int[NUM_SCORES];
         int scoreUpdate = 4;
         int i;
-
+        scnr.close();
         for (i = 0; i < quizScores.length; ++i) {
             quizScores[i] = scnr.nextInt();
         }
-        scnr.close();
+        
 
         updateScoreVals(quizScores, scoreUpdate);
         printScoreVals(quizScores);

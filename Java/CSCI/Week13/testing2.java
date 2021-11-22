@@ -12,5 +12,6 @@ public class testing2 {
         else{
             System.out.println("No");
         }
+        scnr.close();
     }
 }
