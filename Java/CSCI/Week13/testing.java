@@ -1,4 +1,4 @@
-package Java.CSCI.Week13;
+
 import java.util.Scanner;
 
 public class testing {
@@ -16,6 +16,7 @@ public class testing {
         for (i = 0; i < scoreVals.length; ++i) {
             System.out.println(scoreVals[i]);
         }
+        
     }
 
     public static void main(String[] args) {
@@ -28,8 +29,11 @@ public class testing {
         for (i = 0; i < quizScores.length; ++i) {
             quizScores[i] = scnr.nextInt();
         }
+        scnr.close();
 
         updateScoreVals(quizScores, scoreUpdate);
         printScoreVals(quizScores);
+        
     }
+
 }
