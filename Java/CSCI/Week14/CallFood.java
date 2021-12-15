@@ -6,7 +6,12 @@ public class CallFood {
         FoodType order4 = new FoodType("Bread");
         FoodType order5 = new FoodType("Ham");
 
+        order1.print();
+        order2.print();
         order3.print();
+        order4.print();
+        order5.print();
+
 
         System.out.println("Next ID: " + FoodType.getNextId());
     }

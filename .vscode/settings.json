@@ -9,7 +9,8 @@
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": true,
     "java.project.sourcePaths": [
-        "Java/CSCI/Week14",
-        "Java/CSCI/Week13"
+        "JAVA/CSCI/Week15",
+        "JAVA/CSCI/Week14",
+        "JAVA/CSCI/Week13"
     ]
 }
